@@ -67,7 +67,15 @@ const MovieGenre = styled.li`
   font-size: 14px;
 `;
 
-const Movie = ({ id, genres, medium_cover_image, summary, title, year }) => {
+const Movie = ({
+  id,
+  title,
+  background_image,
+  medium_cover_image,
+  year,
+  genres,
+  summary,
+}) => {
   return (
     <MovieContainer className="movie">
       <SLink
@@ -80,6 +88,7 @@ const Movie = ({ id, genres, medium_cover_image, summary, title, year }) => {
             summary,
             title,
             year,
+            background_image,
           },
         }}
       >

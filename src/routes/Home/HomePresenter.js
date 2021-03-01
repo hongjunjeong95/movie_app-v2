@@ -27,19 +27,19 @@ const HomePresenter = ({ isLoading, movies }) => (
         {movies.map((movie) => (
           <Movie
             key={movie.id}
-            background_image={movie.background_image}
-            description_full={movie.description_full}
-            genres={movie.genres}
             id={movie.id}
+            title={movie.title}
+            background_image={movie.background_image}
+            medium_cover_image={movie.medium_cover_image}
+            year={movie.year}
+            genres={movie.genres}
+            summary={movie.summary}
+            description_full={movie.description_full}
             language={movie.language}
             large_cover_image={movie.large_cover_image}
-            medium_cover_image={movie.medium_cover_image}
             small_cover_image={movie.small_cover_image}
-            summary={movie.summary}
             synopsis={movie.synopsis}
-            title={movie.title}
             url={movie.url}
-            year={movie.year}
           ></Movie>
         ))}
       </Movies>

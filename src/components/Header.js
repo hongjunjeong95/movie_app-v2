@@ -1,38 +1,53 @@
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import styled from "styled-components";
 
-const Container = styled.div`
+const Container = styled.header`
+  color: black;
   position: fixed;
-  top: 50px;
-  left: 10px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
   display: flex;
-  flex-direction: column;
-  background-color: white;
-  padding: 10px 20px;
-  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
-    0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
-  border-radius: 5px;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 10;
+  box-shadow: 0px 1px 5px 2px rgba(255, 255, 255, 0.8);
+`;
+
+const List = styled.ul`
+  display: flex;
+`;
+
+const Item = styled.li`
+  width: 80px;
+  height: 50px;
+  text-align: center;
+  border-bottom: 3px solid
+    ${(props) => (props.current ? "#3498db" : "transparent")};
+  transition: border-bottom 0.5s ease-in-out;
 `;
 
 const SLink = styled(Link)`
-  text-decoration: none;
-  color: #0008fc;
-  text-transform: uppercase;
-  font-size: 12px;
-  text-align: center;
-  font-weight: 600;
-  :not(:last-child) {
-    margin-bottom: 20px;
-  }
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
-const Header = () => {
+const Header = ({ location: { pathname } }) => {
   return (
     <Container>
-      <SLink to="/">Home</SLink>
-      <SLink to="/about">About</SLink>
+      <List>
+        <Item current={pathname === "/"}>
+          <SLink to="/">Home</SLink>
+        </Item>
+        <Item current={pathname === "/about"}>
+          <SLink to="/about">About</SLink>
+        </Item>
+      </List>
     </Container>
   );
 };
 
-export default Header;
+export default withRouter(Header);
