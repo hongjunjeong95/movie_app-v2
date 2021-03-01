@@ -2,12 +2,20 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./Movie.css";
 
-const Movie = ({ genres, id, medium_cover_image, summary, title, year }) => {
+const Movie = ({ id, genres, medium_cover_image, summary, title, year }) => {
   return (
     <div className="movie">
       <Link
         to={{
           pathname: `/movie/${id}`,
+          state: {
+            id,
+            genres,
+            medium_cover_image,
+            summary,
+            title,
+            year,
+          },
         }}
       >
         <div>

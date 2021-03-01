@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
-import Loader from "../components/Loader";
-import Movie from "../components/Movie";
+import Loader from "Components/Loader";
+import Movie from "Components/Movie";
 import "./Home.css";
 
 class Home extends React.Component {
